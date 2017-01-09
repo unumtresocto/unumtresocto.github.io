@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body, .app-box {
+    height: 100%;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.app-box {
+    overflow: hidden;
+    padding: 0;
+}
+
+.video-box {
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 560px;
+}
+
+.video-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.thmb {
+    width: 100%;
+}
+
+.title {
+    margin-top: 0 !important;
+    /*height: auto;*/
+}
+
+.title:hover {
+    background-color: #eee;
+}
+.channeldate-box, .views-box, .description-box, .title {
+    padding: 0 10px 0 10px;
+    margin: 10px 0;
+}
+
+.channeldate-box, .views-box, .title {
+    text-align: center;
+}
+
+.channeldate-box {
+    font-size: 1.6rem;
+}
+
+.views-box {
+    font-size: 2rem;
+}
+
+.channel, .date {
+    vertical-align: middle;
+}
+
+.pages-box {
+    position: relative;
+}
+
+.curr-page {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    transition: left 1s;
+}
+
+.prev-page {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    transition: left 1s;
+}
+
+.next-page {
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    transition: left 1s;
+}
+
+.page-href {
+    display: inline-block;
+}
+
+.paging-box {
+    text-align: center;
+}
+.paging-box li {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 19px;
+    margin: 0 3px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #eee;
+}
+.paging-box li:before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+    left: 0px;
+    background-color: #eee;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.paging-box li:hover:before {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Larger than mobile */
+@media (min-width: 320px) {
+    .search-box, .paging-box {
+        height: 40px;
+        width: 320px;
+        margin: 0 auto;
+        padding: 3px;
+    }
+    .pages-box {
+        margin-top: 10px;
+        height: 560px;
+        width: 100%;
+    }
+    .video-box {
+        margin: 0 auto;
+        width: 360px;
+    }
+
+    .search-input {
+        width: 256px;
+        display: inline-block;
+    }
+    .search-btn {
+        display: inline-block;
+        margin-left: 3px;
+        width: 50px;
+        padding: 0 10px 3px 15px;
+        font-size: 2rem;
+    }
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    .search-box, .paging-box {
+        height: 40px;
+        width: 500px;
+        margin: 0 auto;
+        padding: 3px;
+    }
+
+    .search-input {
+        width: 440px;
+        display: inline-block;
+    }
+    .search-btn {
+        display: inline-block;
+        margin-left: 3px;
+        width: 50px;
+        padding: 0 10px 3px 15px;
+        font-size: 2rem;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 600px) {
+    .search-box, .paging-box {
+        height: 40px;
+        width: 600px;
+        margin: 0 auto;
+        padding: 3px;
+    }
+    .video-box {
+        width: 280px;
+        margin: 0 10px;
+        vertical-align: top;
+    }
+    .pages-box {
+        margin: 30px 0;
+        height: 560px;
+        width: 100%;
+    }
+
+    .search-input {
+        width: 540px;
+        display: inline-block;
+    }
+    .search-btn {
+        display: inline-block;
+        margin-left: 3px;
+        width: 50px;
+        padding: 0 10px 3px 15px;
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .channel, .date {
+        font-size: 1.4rem;
+    }
+
+    .title {
+        height: 50px;
+        overflow: hidden;
+    }
+    .channeldate-box, .views-box {
+        height: 40px;
+        overflow: hidden;
+    }
+}
