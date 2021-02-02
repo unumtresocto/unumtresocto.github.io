@@ -1,15 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>YoTab</title>
-    <script src="https://use.fontawesome.com/5e34303c3e.js"></script>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="skeleton.css">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
 </head>
 <body>
-    <script src="bundle.js"></script>
+    <style>
+        h2 {
+            margin: 0 0 10px;
+        }
+        h4 {
+            margin: 0
+        }
+        section {
+            margin: 0 0 20px 0;
+            padding: 10px;
+            border: 1px dashed gray;
+        }
+
+        section section {
+            border: none;
+            padding: 0;
+        }
+    </style>
+    <section #personal>
+        <h2>BIO</h2>
+        <strong>Name:</strong> Aliaksandr Shumeika
+        <br>
+        <strong>Occupation:</strong> Front-End Engineer
+    </section>
+    <section #skills>
+        <h2>Skills</h2>
+        <strong>Primary:</strong> Angular, RxJS, TypeScript, NgRx, HTML5/CSS3/JS
+        <br>
+        <strong>Secondary:</strong> ReactJS, Redux, CoreJS
+        <br>
+        <strong>Aux:</strong> Git, CI/CD, Docker, Kubernetes, Jenkins, Teamcity
+    </section>
+    <section #experience>
+        <h2>Experience</h2>
+        <section>
+            <h4>EPAM</h4>  
+            Feb 2017 - Aug 2018
+            <br>
+            <p>
+                B2B document-flow applicaiton.<br>
+                Migration of Silverlight-based CRUD application with a lot of tables and customizable forms.
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        Team-size: ~20
+                    </li>
+                    <li>
+                        Front-End: Angular 2+, ng-store, SCSS, BEM
+                        <br>
+                        Back-End: .Net, SQL
+                        <br>
+                        CI/CD: Jenkins
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <hr>
+        <section>
+            <h4>EPAM</h4>
+            Aug 2018 - Nov 2018
+            <br>
+            <p>
+                Website for airline company.<br>
+                Default airlines website implemented with React + NodeJS and SSR (and some CMS).
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        Team-size: ~10
+                    </li>
+                    <li>
+                        Front-End: React, SCSS, Redux
+                        <br>
+                        Back-End: NodeJS
+                        <br>
+                        CI/CD: Jenkins
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <hr>
+        <section>
+            <h4>EPAM</h4>
+            Nov 2018 - Jan 2020
+            <br>
+            <p>
+                Application for high-level prototyping of oil-producing facilities.<br>
+                Angular based web-application with block-flow diagram constructor, forms, tables and integration with other apps.
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        Team-size: ~6
+                    </li>
+                    <li>
+                        Front-End: Angular 6+, NgRx, PostCSS, GoJS (diagram building lib), AG-grid (table)
+                        <br>
+                        Back-End: NodeJS (Back-end for Front-end), Go, FireStore
+                        <br>
+                        CI/CD: Azure DevOps, Docker, Kubernetes
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <hr>
+        <section>
+            <h4>Solarwinds</h4> 
+            Jan 2020 - ...
+            <br>
+            <p>
+                <a href="https://www.solarwindsmsp.com/products/backup">https://www.solarwindsmsp.com/products/backup</a>
+                <br>
+                Angular based web interface for backups management application.
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        Team-size: ~6-10
+                    </li>
+                    <li>
+                        Front-End: Angular 8+, Less + Legacy
+                        <br>
+                        Back-End: C++
+                        <br>
+                        CI/CD: Teamcity, Docker
+                    </li>
+                </ul>
+            </p>
+        </section>
+    </section>
 </body>
 </html>
