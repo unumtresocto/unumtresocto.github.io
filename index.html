@@ -3,164 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-</head>
-<body>
+    <title>Square Animation</title>
     <style>
-        h2 {
-            margin: 0 0 10px;
-        }
-        h4 {
-            margin: 0
-        }
-        section {
-            margin: 0 0 20px 0;
-            padding: 10px;
-            border: 1px dashed gray;
-        }
-
-        section section {
-            border: none;
-            padding: 0;
+        canvas {
+            border: 1px solid black;
         }
     </style>
-    <section #personal>
-        <h2>BIO</h2>
-        <strong>Name:</strong> Aliaksandr Shumeika
-        <br>
-        <strong>Occupation:</strong> Front-End Engineer
-    </section>
-    <section #skills>
-        <h2>Skills</h2>
-        <strong>Primary:</strong> Angular, RxJS, TypeScript, NgRx, HTML5/CSS3/JS
-        <br>
-        <strong>Secondary:</strong> ReactJS, Redux, CoreJS
-        <br>
-        <strong>Aux:</strong> Git, CI/CD, Docker, Kubernetes, Jenkins, Teamcity
-    </section>
-    <section #experience>
-        <h2>Experience</h2>
-        <section>
-            <h4>EPAM</h4>  
-            Feb 2017 - Aug 2018
-            <br>
-            <p>
-                B2B document-flow applicaiton.<br>
-                Migration of Silverlight-based CRUD application with a lot of tables and customizable forms.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~20
-                    </li>
-                    <li>
-                        Front-End: Angular 2+, ng-store, SCSS, BEM
-                        <br>
-                        Back-End: .Net, SQL
-                        <br>
-                        CI/CD: Jenkins
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>EPAM</h4>
-            Aug 2018 - Nov 2018
-            <br>
-            <p>
-                Website for airline company.<br>
-                Default airlines website implemented with React + NodeJS and SSR (and some CMS).
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~10
-                    </li>
-                    <li>
-                        Front-End: React, SCSS, Redux
-                        <br>
-                        Back-End: NodeJS
-                        <br>
-                        CI/CD: Jenkins
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>EPAM</h4>
-            Nov 2018 - Jan 2020
-            <br>
-            <p>
-                Application for high-level prototyping of oil-producing facilities.<br>
-                Angular based web-application with block-flow diagram constructor, forms, tables and integration with other apps.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~6
-                    </li>
-                    <li>
-                        Front-End: Angular 6+, NgRx, PostCSS, GoJS (diagram building lib), AG-grid (table)
-                        <br>
-                        Back-End: NodeJS (Back-end for Front-end), Go, FireStore
-                        <br>
-                        CI/CD: Azure DevOps, Docker, Kubernetes
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>Solarwinds</h4> 
-            Jan 2020 - April 2021
-            <br>
-            <p>
-                <a href="https://www.solarwindsmsp.com/products/backup">https://www.solarwindsmsp.com/products/backup</a>
-                <br>
-                Angular based web interface for backups management application.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~6-10
-                    </li>
-                    <li>
-                        Front-End: Angular 8+, Less + Legacy
-                        <br>
-                        Back-End: C++
-                        <br>
-                        CI/CD: Teamcity, Docker
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>Akveo llc.</h4> 
-            April 2021 - ...
-            <br>
-            <p>
-                <a href="https://www.akveo.com/">https://www.akveo.com/</a>
-                <br>
-                SPA for insurance cases processing in healthcare.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~4-6
-                    </li>
-                    <li>
-                        Front-End: Angular 11+, SCSS, NgRx
-                        <br>
-                        Back-End: Java
-                        <br>
-                        CI/CD: Azure DevOps
-                    </li>
-                </ul>
-            </p>
-        </section>
-    </section>
+</head>
+<body>
+    <canvas id="myCanvas" width="640" height="32"></canvas>
+    <br>
+    <button id="configButton">Click me</button>
+
+    <script>
+        // Get the canvas and context
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Square properties
+        const squareSize = 32;
+        let x = 0; // Initial x position
+        const y = (canvas.height - squareSize) / 2; // Vertical center
+        let speed = 2; // Speed of movement (pixels per frame)
+
+        // Configuration for animation
+        const configurations = [
+            { color: 'red', fps: 60 },  // Red square - 60 FPS
+            { color: 'green', fps: 15 }, // Green square - 15 FPS
+            { color: 'blue', fps: 30 },   // Blue square - 30 FPS
+            { color: 'magenta', fps: 120 }
+        ];
+        let currentConfig = 0; // Tracks current configuration
+        let animationInterval; // Holds reference to the interval
+
+        // Animation function
+        function animate() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the square
+            ctx.fillStyle = configurations[currentConfig].color;
+            ctx.fillRect(x, y, squareSize, squareSize);
+
+            // Update the square's x position
+            x += speed;
+
+            // Check if the square hits the right or left edge
+            if (x + squareSize > canvas.width || x < 0) {
+                speed = -speed; // Reverse direction
+            }
+        }
+
+        // Start animation with specified FPS
+        function startAnimation(fps) {
+            // Clear any existing intervals
+            clearInterval(animationInterval);
+
+            // Set new interval based on the current FPS
+            animationInterval = setInterval(() => {
+                animate();
+            }, 1000 / fps);
+        }
+
+        // Rotate through configurations
+        function changeConfiguration() {
+            currentConfig = (currentConfig + 1) % configurations.length; // Cycle through options
+            startAnimation(configurations[currentConfig].fps); // Start animation with new FPS
+        }
+
+        // Start the initial animation at 60 FPS (red square)
+        startAnimation(configurations[0].fps);
+
+        // Attach event listener to the button
+        document.getElementById('configButton').addEventListener('click', changeConfiguration);
+    </script>
 </body>
 </html>
