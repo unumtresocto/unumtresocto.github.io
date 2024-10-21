@@ -13,7 +13,7 @@
 <body>
     <canvas id="myCanvas" width="640" height="32"></canvas>
     <br>
-    <button id="configButton">Click me</button>
+    <button id="configButton">Change Animation</button>
 
     <script>
         // Get the canvas and context
@@ -24,17 +24,22 @@
         const squareSize = 32;
         let x = 0; // Initial x position
         const y = (canvas.height - squareSize) / 2; // Vertical center
-        let speed = 2; // Speed of movement (pixels per frame)
+
+        // Base speed for 60 FPS (this is the real-world speed in pixels per second)
+        const baseSpeed = 120; // pixels per second
+
+        let currentFps = 60; // Default FPS
+        let speed = baseSpeed / currentFps; // Pixels per frame, depends on FPS
 
         // Configuration for animation
         const configurations = [
             { color: 'red', fps: 60 },  // Red square - 60 FPS
             { color: 'green', fps: 15 }, // Green square - 15 FPS
-            { color: 'blue', fps: 30 },   // Blue square - 30 FPS
-            { color: 'magenta', fps: 120 }
+            { color: 'blue', fps: 30 }   // Blue square - 30 FPS
         ];
         let currentConfig = 0; // Tracks current configuration
         let animationInterval; // Holds reference to the interval
+        let direction = 1;
 
         // Animation function
         function animate() {
@@ -46,11 +51,11 @@
             ctx.fillRect(x, y, squareSize, squareSize);
 
             // Update the square's x position
-            x += speed;
+            x += speed * direction;
 
             // Check if the square hits the right or left edge
             if (x + squareSize > canvas.width || x < 0) {
-                speed = -speed; // Reverse direction
+                direction = -direction; // Reverse direction
             }
         }
 
@@ -58,6 +63,9 @@
         function startAnimation(fps) {
             // Clear any existing intervals
             clearInterval(animationInterval);
+
+            // Calculate the speed per frame based on FPS
+            speed = baseSpeed / fps;
 
             // Set new interval based on the current FPS
             animationInterval = setInterval(() => {
@@ -68,7 +76,8 @@
         // Rotate through configurations
         function changeConfiguration() {
             currentConfig = (currentConfig + 1) % configurations.length; // Cycle through options
-            startAnimation(configurations[currentConfig].fps); // Start animation with new FPS
+            currentFps = configurations[currentConfig].fps; // Get new FPS
+            startAnimation(currentFps); // Start animation with new FPS
         }
 
         // Start the initial animation at 60 FPS (red square)
