@@ -1,166 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aliaksandr Shumeika - CV</title>
     <style>
-        h2 {
-            margin: 0 0 10px;
-        }
-        h4 {
-            margin: 0
-        }
-        section {
-            margin: 0 0 20px 0;
-            padding: 10px;
-            border: 1px dashed gray;
-        }
+      h2,
+      h3,
+      h4 {
+        margin: 0 0 10px 0;
+      }
 
-        section section {
-            border: none;
-            padding: 0;
-        }
+      .section {
+        margin: 0 auto 20px auto;
+        padding: 10px;
+        border: 1px dashed gray;
+        max-width: 900px;
+      }
+
+      p:last-child,
+      ul:last-child {
+        margin-bottom: 0;
+      }
+
+      p:first-child,
+      ul:first-child {
+        margin-top: 0;
+      }
+
+      .print-only {
+        display: none;
+      }
+
+      .contact-info {
+        margin: 0;
+      }
+
+      #personal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     </style>
-    <section #personal>
-        <h2>BIO</h2>
-        <strong>Name:</strong> Aliaksandr Shumeika
-        <br>
-        <strong>Occupation:</strong> Front-End Engineer
+  </head>
+
+  <body>
+    <header id="personal" class="section">
+      <h2>Aliaksandr Shumeika</h2>
+      <h3>Software Engineer</h3>
+      <p class="contact-info no-print">
+        <a href="https://github.com/unumtresocto" target="_blank">github</a> |
+        <a href="https://www.linkedin.com/in/unumtresocto/" target="_blank"
+          >linkedin</a
+        >
+      </p>
+    </header>
+    <section id="summary" class="section">
+      <p>
+        <strong>Summary:</strong> Experienced software engineer with 7+ years in
+        the field, specializing in
+        <strong>Angular, TypeScript, and RxJS</strong>. Experience includes but
+        is not limited to: migrating legacy systems, implementing new features,
+        troubleshooting performance issues. As of recently also working as
+        full-stack developer and leading small and medium-sized teams. Open to
+        learning new tools and technologies.
+      </p>
+      <p>
+        <strong>Education:</strong> Belarusian State University - Department of
+        Radiophysics and Computer Technologies, Computer Security, Specialist
+      </p>
     </section>
-    <section #skills>
-        <h2>Skills</h2>
-        <strong>Primary:</strong> Angular, RxJS, TypeScript, NgRx, HTML5/CSS3/JS
-        <br>
-        <strong>Secondary:</strong> ReactJS, Redux, CoreJS
-        <br>
-        <strong>Aux:</strong> Git, CI/CD, Docker, Kubernetes, Jenkins, Teamcity
+    <section id="skills" class="section">
+      <h3>Technical skills</h3>
+      <ul>
+        <li>
+          <strong>Frontend:</strong> Angular, RxJS, TypeScript, NgRx, HTML5,
+          CSS3, JavaScript
+        </li>
+        <li>
+          <strong>Full Stack:</strong> Node.js, NestJS, AWS (Developer
+          Associate)
+        </li>
+        <li>
+          <strong>DevOps & CI/CD:</strong> Docker, Jenkins, Git, Bamboo, Splunk,
+          bash
+        </li>
+      </ul>
     </section>
-    <section #experience>
-        <h2>Experience</h2>
-        <section>
-            <h4>EPAM</h4>  
-            Feb 2017 - Aug 2018
-            <br>
-            <p>
-                B2B document-flow applicaiton.<br>
-                Migration of Silverlight-based CRUD application with a lot of tables and customizable forms.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~20
-                    </li>
-                    <li>
-                        Front-End: Angular 2+, ng-store, SCSS, BEM
-                        <br>
-                        Back-End: .Net, SQL
-                        <br>
-                        CI/CD: Jenkins
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>EPAM</h4>
-            Aug 2018 - Nov 2018
-            <br>
-            <p>
-                Website for airline company.<br>
-                Default airlines website implemented with React + NodeJS and SSR (and some CMS).
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~10
-                    </li>
-                    <li>
-                        Front-End: React, SCSS, Redux
-                        <br>
-                        Back-End: NodeJS
-                        <br>
-                        CI/CD: Jenkins
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>EPAM</h4>
-            Nov 2018 - Jan 2020
-            <br>
-            <p>
-                Application for high-level prototyping of oil-producing facilities.<br>
-                Angular based web-application with block-flow diagram constructor, forms, tables and integration with other apps.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~6
-                    </li>
-                    <li>
-                        Front-End: Angular 6+, NgRx, PostCSS, GoJS (diagram building lib), AG-grid (table)
-                        <br>
-                        Back-End: NodeJS (Back-end for Front-end), Go, FireStore
-                        <br>
-                        CI/CD: Azure DevOps, Docker, Kubernetes
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>Solarwinds</h4> 
-            Jan 2020 - April 2021
-            <br>
-            <p>
-                <a href="https://www.solarwindsmsp.com/products/backup">https://www.solarwindsmsp.com/products/backup</a>
-                <br>
-                Angular based web interface for backups management application.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~6-10
-                    </li>
-                    <li>
-                        Front-End: Angular 8+, Less + Legacy
-                        <br>
-                        Back-End: C++
-                        <br>
-                        CI/CD: Teamcity, Docker
-                    </li>
-                </ul>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h4>Akveo llc.</h4> 
-            April 2021 - ...
-            <br>
-            <p>
-                <a href="https://www.akveo.com/">https://www.akveo.com/</a>
-                <br>
-                SPA for insurance cases processing in healthcare.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                        Team-size: ~4-6
-                    </li>
-                    <li>
-                        Front-End: Angular 11+, SCSS, NgRx
-                        <br>
-                        Back-End: Java
-                        <br>
-                        CI/CD: Azure DevOps
-                    </li>
-                </ul>
-            </p>
-        </section>
+    <section id="experience" class="section">
+      <h3>Key Experience</h3>
+      <section>
+        <h4>EPAM Systems - Lead Software Engineer</h4>
+        Apr 2024 - Sep 2024
+        <br />
+        <ul>
+          <li>
+            Co-led a team of 6 in maintaining and enhancing a
+            <strong>fraud detection service</strong>.
+          </li>
+          <li>
+            Introduced new <strong>authorization methods</strong> (OPA sidecar)
+            and updated<strong>alerting (using Splunk)</strong> for improved
+            security and observability.
+          </li>
+          <li>
+            Made sure that performance of the service was kept within SLAs
+            during introduction of new fraud tool (> 500k req/day).
+          </li>
+        </ul>
+      </section>
+      <hr />
+      <section>
+        <h4>EPAM Systems - Key Developer</h4>
+        Aug 2022 - Feb 2024
+        <br />
+        <ul>
+          <li>
+            Developed key modules for an <strong>Admin platform</strong> in the
+            travel & hospitality domain, focusing on
+            <strong>UX improvements</strong> and performance optimization.
+          </li>
+          <li>
+            Enhanced platform performance by reducing HTTP calls, implementing
+            caching, and <strong>eliminating technical debt</strong>.
+          </li>
+          <li>
+            Upgraded Angular versions and <strong>improved
+            CI/CD processes</strong> by introducing deploy previewes
+            using Netlify.
+          </li>
+        </ul>
+      </section>
+      <hr />
+      <section>
+        <h4>Solarwinds - Software Engineer</h4>
+        Jan 2020 - April 2021
+        <br />
+        <p>
+          <a href="https://www.solarwindsmsp.com/products/backup"
+            >https://www.solarwindsmsp.com/products/backup</a
+          >
+          <br />
+          Migration of existing web application for backups management from
+          outdated technological stack (backbone + vanilla JS) to Angular,
+          fixing potential security issues and re-implementing feature pages
+        </p>
+        <ul>
+          <li>
+            Took part in migration of a legacy
+            <strong>backups management dashboard</strong> from Backbone.js to
+            Angular.
+          </li>
+          <li>
+            Implemented main filters panel with ability to <strong>translate configuration
+            into search query</strong>.
+          </li>
+          <li>Implemented <strong>new user management</strong> module.</li>
+        </ul>
+      </section>
     </section>
-</body>
+  </body>
 </html>
